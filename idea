@@ -1,0 +1,15 @@
+main() call streams live
+    Call Stream
+        push incoming data to stt
+        speechStr=transcribed event callback
+        
+        immidately push, speechStr to LLM
+        respStr = llm resp callback
+
+        tts push respStr
+        bytesArray:=mulaw to speak callbck
+
+        now push bytes array to ws
+        till speech str is stopped
+
+

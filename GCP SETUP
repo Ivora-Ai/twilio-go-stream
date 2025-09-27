@@ -1,0 +1,55 @@
+
+
+PORTS step
+
+gcloud compute firewall-rules create allow-http \                                                                                                                                                         ─╯
+    --allow=tcp:80 \
+    --source-ranges=0.0.0.0/0 \
+    --target-tags=http-server
+
+
+gcloud compute firewall-rules create allow-http-qdrant \                                                                                                                                                  ─╯
+    --allow=tcp:6663 \
+    --source-ranges=0.0.0.0/0 \
+    --target-tags=qdrant-server
+
+gcloud compute firewall-rules create allow-postgres \
+    --allow=tcp:5432 \
+    --source-ranges=0.0.0.0/0 \
+    --target-tags=pg-server \
+    --description="Allow external access to PostgreSQL"
+
+    gcloud compute firewall-rules create allow-custom-ports \
+    --allow=tcp:8080,tcp:8081,tcp:3000 \
+    --source-ranges=0.0.0.0/0 \
+    --target-tags=custom-services \
+    --description="Allow external access to agents-platform (8080), thon (8081), and twilio-go-stream (3000)"
+
+
+    gcloud compute instances list
+
+    gcloud compute instances add-tags instance-20250216-191929 \                                                                                                                                          ─╯
+    --tags=custom-services,pg-server \
+    --zone=us-central1-c
+
+
+    ------------------------------------------------------
+        command to check logs 
+        tail -f output.log
+
+        command to run wihtout blocking terminal 
+
+
+
+        nohup go run main.go > output.log 2>&1 &
+
+        
+
+        nohup python3 main.py > output_raf.log 2>&1 &
+
+        
+        
+        --------------
+        pip install flask-cors
+
+        sudo lsof -i :5000
