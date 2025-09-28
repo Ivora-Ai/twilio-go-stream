@@ -12,7 +12,7 @@ IMAGE_NAME := twilio/voice#to be added in registry
 TAG := latest
 REGION := us-central1
 REPO_NAME := twilio# Replace with the actual repository name in Artifact Registry
-CR_SERVICE := voice
+CR_SERVICE := twilio-go-stream
 GCR_IMAGE := gcr.io/$(PROJECT_ID)/$(IMAGE_NAME):$(TAG)
 ARTIFACT_IMAGE := $(REGION)-docker.pkg.dev/$(PROJECT_ID)/$(REPO_NAME)/$(IMAGE_NAME):$(TAG)
 
@@ -32,7 +32,7 @@ verify-artifact:
 	gcloud artifacts docker images list $(REGION)-docker.pkg.dev/$(PROJECT_ID)/$(REPO_NAME)
 
 log:
-	gcloud beta run services logs read voice       
+	gcloud beta run services logs read twilio-go-stream       
 deploy: push-artifact
 	gcloud run deploy $(CR_SERVICE) \
   --image=us-central1-docker.pkg.dev/$(PROJECT_ID)/$(REPO_NAME)/$(IMAGE_NAME):latest \

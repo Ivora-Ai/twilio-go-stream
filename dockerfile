@@ -1,6 +1,5 @@
-# TEMPORARY: Using postgres:15-alpine as base due to Docker registry connectivity issues
-# TODO: Switch back to alpine:latest when registry issue is resolved
-FROM postgres:15-alpine
+# Use alpine for smaller container size
+FROM alpine:latest
 
 # Set the working directory
 WORKDIR /root/
