@@ -45,7 +45,7 @@ func main() {
 	handlers.SetRoutes()
 
 	// Start HTTP server
-	port := getEnv("PORT", "80")
+	port := getEnv("PORT", "8080")
 	log.Printf("Server started on port %s", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }

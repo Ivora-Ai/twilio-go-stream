@@ -9,7 +9,7 @@ COPY . .
 ENV GOOGLE_APPLICATION_CREDENTIALS=./sa.json
 
 # Expose port
-EXPOSE 80
+EXPOSE 8080
 
 # Ensure the binary has execute permissions
 RUN chmod +x ./app
